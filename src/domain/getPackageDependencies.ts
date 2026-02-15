@@ -55,12 +55,13 @@ async function resolveDependenciesRecursively(
   name: string,
   range: string,
 ): Promise<Package> {
-  const npmPackage = await (
-      //TODO issue: Hardcoded url it prevents effective testing. 
-      // suggestion: This URL should be injected in or a method injected to get the package
-      // npmPackageGetter.ts also has the same issue
-    await axios.get(`https://registry.npmjs.org/${name}`)
-  ).data;
+  const npmPackage =
+    await //TODO issue: Hardcoded url it prevents effective testing.
+    // suggestion: This URL should be injected in or a method injected to get the package
+    // npmPackageGetter.ts also has the same issue
+    (
+      await axios.get(`https://registry.npmjs.org/${name}`)
+    ).data;
 
   const maxSatisfyingVersion = maxSatisfying(
     Object.keys(npmPackage.versions),
@@ -77,8 +78,8 @@ async function resolveDependenciesRecursively(
   for (const [name, range] of Object.entries(
     npmPackage.versions[maxSatisfyingVersion].dependencies ?? {},
   )) {
-    //TODO: suggestion: Can this @ts-ignore be removed and the underlying type mismatch be fixed? 
-    // Can we make use of NPMPackage interface? 'await axios.get<NPMPackage>' 
+    //TODO: suggestion: Can this @ts-ignore be removed and the underlying type mismatch be fixed?
+    // Can we make use of NPMPackage interface? 'await axios.get<NPMPackage>'
     // eslint-disable-next-line
     // @ts-ignore
     dependencies[name] = await resolveDependenciesRecursively(name, range);

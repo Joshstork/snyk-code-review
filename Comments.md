@@ -1,14 +1,16 @@
 # Comments
 
 - I have added TODO comments within the code, especially the file `getPackageDependencies.ts`
-- issue (blocking): Great to see the `getPackage.integration.test.ts` was updated but nothing 
-added or changed in `getPackageDependencies.test.ts`, these existing tests are now failing 
-and require updating.
+- issue (blocking): Great to see the `getPackage.integration.test.ts` was updated but nothing
+  added or changed in `getPackageDependencies.test.ts`, these existing tests are now failing
+  and require updating.
 
 # Confirming changes
+
 - It looks like the intended changes do work
 
 Main
+
 ```
 curl http://localhost:3000/package/react/16.13.0 | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -26,6 +28,7 @@ curl http://localhost:3000/package/react/16.13.0 | jq .
 ```
 
 feat/resolve-dependency-tree
+
 ```
 curl http://localhost:3000/package/react/16.13.0 | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -75,10 +78,11 @@ curl http://localhost:3000/package/react/16.13.0 | jq .
 ```
 
 # e2e test
+
 Running e2e test on main:
 Jest has detected the following 1 open handle potentially keeping Jest from exiting:
 
-●  STREAM_END_OF_STREAM
+● STREAM_END_OF_STREAM
 const server = app.listen(port, () => {
 
 Running npm install;
