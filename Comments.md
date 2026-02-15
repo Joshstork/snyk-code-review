@@ -7,7 +7,9 @@ and require updating.
 
 # Confirming changes
 - It looks like the intended changes do work
+
 Main
+```
 curl http://localhost:3000/package/react/16.13.0 | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -21,8 +23,10 @@ curl http://localhost:3000/package/react/16.13.0 | jq .
     "object-assign": "4.1.1"
   }
 }
+```
 
 feat/resolve-dependency-tree
+```
 curl http://localhost:3000/package/react/16.13.0 | jq .
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
@@ -68,7 +72,7 @@ curl http://localhost:3000/package/react/16.13.0 | jq .
     }
   }
 }
-
+```
 
 # e2e test
 Running e2e test on main:
