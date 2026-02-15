@@ -4,6 +4,7 @@
 - issue (blocking): Great to see the `getPackage.integration.test.ts` was updated but nothing
   added or changed in `getPackageDependencies.test.ts`, these existing tests are now failing
   and require updating.
+- suggestion: remove using axios directly in tests, mock the call instead
 
 # Confirming changes
 
